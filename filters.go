@@ -8,9 +8,16 @@ func filterSuitesByFilter(suites []Suite, filterTerms []string) []Suite {
 	var filtered []Suite
 
 	for _, suite := range suites {
+		// If suite matches any negative filter, skip it entirely.
+		if matchesNegativeFilter(suite.Title, suite.File, nil, filterTerms) {
+			continue
+		}
+
+		// Now check if suite matches positive filter or if any child suites/specs do.
 		suiteMatches := matchesFilter(suite.Title, suite.File, nil, filterTerms)
 
 		if suiteMatches {
+			// Recursively apply negative filter to child suites/specs
 			suite.Suites = applyNegativeFilterToSuites(suite.Suites, filterTerms)
 
 			var newSpecs []Spec
@@ -25,6 +32,8 @@ func filterSuitesByFilter(suites []Suite, filterTerms []string) []Suite {
 			continue
 		}
 
+		// If suite itself does not match positive filter,
+		// recurse to filter child suites/specs for positive matches.
 		suite.Suites = filterSuitesByFilter(suite.Suites, filterTerms)
 
 		var newSpecs []Spec
