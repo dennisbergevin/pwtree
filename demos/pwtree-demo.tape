@@ -1,23 +1,18 @@
 Output pwtree-demo.gif
 
 Set WindowBar Colorful
-Set CursorBlink true
-Set Margin 20
-Set MarginFill "#6788FF"
+Set WindowBarSize 60
 Set TypingSpeed 30ms
-Set Theme "nord"
-Set FontFamily "JetBrainsMono Nerd Font"
-Set Padding 12
-Set PlaybackSpeed 1
-Set BorderRadius 20
-Set Width 1100
-Set Height 650
-Set FontSize 24
+Set Shell bash
+Set FontSize 19
+Set Width 1800
+Set Height 900
+
 
 Type "pwtree"
 Sleep 1s
 Enter
-Sleep 3s
+Sleep 2s
 
 Hide
 Ctrl+c

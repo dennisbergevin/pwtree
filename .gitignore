@@ -2,3 +2,13 @@
 pwtree
 .pwtree.json
 dist/
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/tests
+package*
+*.config.ts
