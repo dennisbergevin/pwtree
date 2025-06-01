@@ -36,6 +36,13 @@ archives:
       - goos: windows
         formats: [zip]
 
+brews:
+  - name: pwtree
+    homepage: https://github.com/dennisbergevin/homebrew-tools
+    repository:
+      owner: dennisbergevin
+      name: homebrew-tools
+
 changelog:
   sort: asc
   filters:
