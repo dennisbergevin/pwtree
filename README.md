@@ -43,7 +43,7 @@ brew install pwtree
 
 ### Go
 
-Install with Go (1.21+):
+Install with Go:
 
 ```console
 go install github.com/dennisbergevin/pwtree@latest
