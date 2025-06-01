@@ -117,7 +117,7 @@ pwtree --ci
 If you want to configure certain display, emoji and style options, you can do so in two ways:
 
 1. Create a `.pwtree.json` in the Playwright project's root directory
-2. For global configurations you can create a config.json file in the ~/.config/pwtree/ directory
+2. For global configurations you can create a `config.json` file in the `~/.config/pwtree/` directory
 
 The content should be in the following format:
 
