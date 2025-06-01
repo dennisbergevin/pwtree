@@ -129,6 +129,8 @@ You may want to run `pwtree` in continuous integration, without custom colors or
 pwtree --ci
 ```
 
+![playwright-tree ci mode](./demos/pwtree-ci.png)
+
 ## Configuration
 
 If you want to configure certain display, emoji and style options, you can do so in two ways:
