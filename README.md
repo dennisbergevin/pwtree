@@ -34,6 +34,21 @@ A terminal tree-view of your Playwright suite
 
 ## Installation
 
+### Homebrew
+
+```console
+brew tap dennisbergevin/tools
+brew install pwtree
+```
+
+### Go
+
+Install with Go (1.21+):
+
+```console
+go install github.com/dennisbergevin/pwtree@latest
+```
+
 ## Command line arguments
 
 To view all files and their respective suites/tests:
