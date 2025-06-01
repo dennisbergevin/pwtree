@@ -5,7 +5,7 @@ Set WindowBarSize 70
 Set Theme "nord"
 Set TypingSpeed 30ms
 Set Shell bash
-Set FontSize 20
+Set FontSize 18
 Set Width 1800
 Set Height 700
 Set Margin 20
