@@ -106,7 +106,7 @@ pwtree --help
 
 ## CI mode
 
-You may want to run `pwtree` in contiguous integration, without custom colors or emojis.
+You may want to run `pwtree` in continuous integration, without custom colors or emojis.
 
 ```bash
 pwtree --ci
