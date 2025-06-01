@@ -49,6 +49,8 @@ Install with Go:
 go install github.com/dennisbergevin/pwtree@latest
 ```
 
+Or grab a binary from [the latest release](https://github.com/dennisbergevin/pwtree/releases/latest).
+
 ## Command line arguments
 
 To view all files and their respective suites/tests:
