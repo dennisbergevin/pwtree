@@ -62,11 +62,23 @@ func defaultStyles() map[string]lipgloss.Style {
 }
 
 func loadStyleConfig() (map[string]lipgloss.Style, DisplayOptions, DisplayEmojis) {
-	paths := []string{
-		"./.pwtree.json",
-		filepath.Join(os.Getenv("HOME"), ".config", "pwtree", "config.json"),
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error getting user home directory: %v\n", err)
+		// Fallback: just try current dir config only
+		paths := []string{"./.pwtree.json"}
+		return determineStyleConfig(paths)
 	}
 
+	paths := []string{
+		"./.pwtree.json",
+		filepath.Join(homeDir, ".config", "pwtree", "config.json"),
+	}
+
+	return determineStyleConfig(paths)
+}
+
+func determineStyleConfig(paths []string) (map[string]lipgloss.Style, DisplayOptions, DisplayEmojis) {
 	var configData []byte
 	for _, path := range paths {
 		if data, err := os.ReadFile(path); err == nil {
@@ -120,9 +132,9 @@ func loadStyleConfig() (map[string]lipgloss.Style, DisplayOptions, DisplayEmojis
 	}
 
 	emojis := DisplayEmojis{
-		Root:  defaultEmojis.Root,
-		File:  defaultEmojis.File,
-		Suite: defaultEmojis.Suite,
+		Root:  "",
+		File:  "",
+		Suite: "",
 	}
 
 	if cfg.EmojiOverrides.Root != nil {
@@ -135,9 +147,11 @@ func loadStyleConfig() (map[string]lipgloss.Style, DisplayOptions, DisplayEmojis
 		emojis.Suite = *cfg.EmojiOverrides.Suite
 	}
 
-	return styles, DisplayOptions{
+	display := DisplayOptions{
 		ShowProjects:  cfg.ShowProjects == nil || *cfg.ShowProjects,
 		ShowTags:      cfg.ShowTags == nil || *cfg.ShowTags,
 		ShowFileLines: cfg.ShowFileLines == nil || *cfg.ShowFileLines,
-	}, emojis
+	}
+
+	return styles, display, emojis
 }
