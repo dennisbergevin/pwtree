@@ -51,7 +51,7 @@ func runPlaywrightList(projects multiFlag, onlyChanged, lastFailed bool, config 
 	fmt.Println("Running command:", "npx", strings.Join(args, " "))
 	var out bytes.Buffer
 	cmd.Stdout = &out
-	cmd.Stderr = os.Stderr
+	cmd.Stderr = nil
 
 	var parsed PlaywrightOutput
 	if err := cmd.Run(); err != nil {
