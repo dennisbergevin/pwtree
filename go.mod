@@ -1,6 +1,6 @@
 module pwtree
 
-go 1.22.2
+go 1.26.10
 
 require github.com/charmbracelet/lipgloss v1.1.0
 
